@@ -1,0 +1,57 @@
+w(1,1,boolean)::x1.                  % effects: eps1(1), eps2(1), eps3(1)
+w(1,1,boolean)::x2.
+w(1,1,boolean)::x3.
+
+w(0.560000,0.440000,boolean)::x4.    % state transition weights
+w(0.750000,0.250000,boolean)::x5.
+
+w(1,1,boolean)::x6.                  % state variables t1
+w(1,1,boolean)::x7.
+w(1,1,boolean)::x8.
+
+w(1,1,boolean)::x9.                  % effects: eps1(2), eps2(2), eps3(2)
+w(1,1,boolean)::x10.
+w(1,1,boolean)::x11.
+
+w(0.560000,0.440000,boolean)::x12.   % state transition weights
+w(0.750000,0.250000,boolean)::x13.
+
+w(1,1,boolean)::x14.                 % state variables t2
+w(1,1,boolean)::x15.
+w(1,1,boolean)::x16.
+
+f :- ( x14),                    % The goal
+
+( x1; x2; x3),                  % One of the effects
+( not x1; not x2),              % Exactly one effect
+( not x1; not x3),
+( not x2; not x3),
+( not x4; x1),                  %  ⟨eps1(1)⟩               => eps1(1)
+( x4; not x5; x2),              % -⟨eps1(1)⟩ ^  ⟨eps2(1)⟩  => eps2(1)
+( x4; x5; x3),                  % -⟨eps1(1)⟩ ^ -⟨eps2(1)⟩  => eps3(1)
+
+( not x1; x6), ( x1; not x6),   % eps1(1) <=> interval1(1)
+( not x2; x7), ( x2; not x7),   % eps2(1) <=> interval2(1)
+( not x3; x8), ( x3; not x8),   % eps3(1) <=> interval3(1)
+
+( x9; x10; x11),
+( not x9; not x10),
+( not x9; not x11),
+( not x10; not x11),
+( not x12; x9),         %  ⟨eps1(2)⟩               => eps1(2)
+( x12; not x13; x10),   % -⟨eps1(2)⟩ ^  ⟨eps2(2)⟩  => eps2(2)
+( x12; x13; x11),       % -⟨eps1(2)⟩ ^ -⟨eps2(2)⟩  => eps3(2)
+
+( not x9; x14),         % eps1(2) => interval1(2)
+( not x10; x15),        % eps2(2) => interval2(2)
+( not x11; x16),        % eps3(2) => interval3(2)
+( x9; not x6; x14),     % interval1(1) => interval1(2)
+( x10;not x7; x15),     % interval2(1) => interval2(2)
+( x11;not x8; x16),     % interval3(1) => interval3(2)
+( x6; x9; not x14),     % interval1(1) or eps1(2) <= interval1(2)
+( x7; x10; not x15),    % interval2(1) or eps2(2) <= interval2(2)
+( x8; x11; not x16).    % interval3(1) or eps3(2) <= interval3(2)
+
+query(f).
+
+

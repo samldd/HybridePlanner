@@ -1,0 +1,132 @@
+w(1,1,boolean)::x1.
+w(1,1,boolean)::x2.
+w(1,1,boolean)::x3.
+w(0.56,1,boolean)::x4.
+w(0.33,1,boolean)::x5.
+w(0.11,1,boolean)::x6.
+w(1,1,boolean)::x7.
+w(1,1,boolean)::x8.
+w(1,1,boolean)::x9.
+w(1,1,boolean)::x10.
+w(1,1,boolean)::x11.
+w(1,1,boolean)::x12.
+w(0.56,1,boolean)::x13.
+w(0.33,1,boolean)::x14.
+w(0.11,1,boolean)::x15.
+w(1,1,boolean)::x16.
+w(1,1,boolean)::x17.
+w(1,1,boolean)::x18.
+w(1,1,boolean)::x19.
+w(1,1,boolean)::x20.
+w(1,1,boolean)::x21.
+w(0.56,1,boolean)::x22.
+w(0.33,1,boolean)::x23.
+w(0.11,1,boolean)::x24.
+w(1,1,boolean)::x25.
+w(1,1,boolean)::x26.
+w(1,1,boolean)::x27.
+w(1,1,boolean)::x28.
+w(1,1,boolean)::x29.
+w(1,1,boolean)::x30.
+w(0.56,1,boolean)::x31.
+w(0.33,1,boolean)::x32.
+w(0.11,1,boolean)::x33.
+w(1,1,boolean)::x34.
+w(1,1,boolean)::x35.
+w(1,1,boolean)::x36.
+w(1,1,boolean)::x37.
+w(1,1,boolean)::x38.
+w(1,1,boolean)::x39.
+w(0.56,1,boolean)::x40.
+w(0.33,1,boolean)::x41.
+w(0.11,1,boolean)::x42.
+w(1,1,boolean)::x43.
+w(1,1,boolean)::x44.
+w(1,1,boolean)::x45.
+
+f :-
+x45,
+( x1; x2; x3),
+( not x1; not x2),
+( not x1; not x3),
+( not x2; not x3),
+( not x4; x1),
+( x4 ; not x5; x2),
+( x4 ; x5 ; not x6; x3),
+( x4 ; x5 ; x6),
+( not x1; x7),
+( not x2; x8),
+( not x3; x9),
+( x1; not x7),
+( x2; not x8),
+( x3; not x9),
+( x10 ; x11 ; x12 ),
+( not x10 ; not x11 ),
+( not x10 ; not x12 ),
+( not x11 ; not x12 ),
+( not x13 ; x10 ),
+( not x14 ; x11 ),
+( not x15 ; x12 ),
+( x13 ; x14 ; x15 ),
+( not x10 ; x16 ),
+( x10 ; not x11 ; x17 ),
+( x10 ; x11 ; not x12 ; x18 ),
+( not x7 ; x16 ),
+( not x8 ; x17 ),
+( not x9 ; x18 ),
+( x7 ; x10 ; not x16 ),
+( x8 ; x11 ; not x17 ),
+( x9 ; x12 ; not x18 ),
+( x19; x20; x21),
+( not x19; not x20),
+( not x19; not x21),
+( not x20; not x21),
+( not x22; x19),
+( x22; not x23; x20),
+( x22; x23; not x24; x21),
+( x22; x23; x24),
+( not x19; x25),
+( not x20; x26),
+( not x21; x27),
+( not x16; x25),
+( not x17; x26),
+( not x18; x27),
+( x16; x19; not x25),
+( x17; x20; not x26),
+( x18; x21; not x27),
+( x28; x29; x30),
+( not x28; not x29),
+( not x28; not x30),
+( not x29; not x30),
+( not x31; x28),
+( x31; not x32; x29),
+( x31; x32; not x33; x30),
+( x31; x32; x33),
+( not x28; x34),
+( not x29; x35),
+( not x30; x36),
+( not x25; x34),
+( not x26; x35),
+( not x27; x36),
+( x25; x28; not x34),
+( x26; x29; not x35),
+( x27; x30; not x36),
+( x37; x38; x39),
+( not x37; not x38),
+( not x37; not x39),
+( not x38; not x39),
+( not x40; x37),
+( x40; not x41; x38),
+( x40; x41; not x42; x39),
+( x40; x41; x42),
+( not x37; x43),
+( not x38; x44),
+( not x39; x45),
+( not x34; x43),
+( not x35; x44),
+( not x36; x45),
+( x34; x37; not x43),
+( x35; x38; not x44),
+( x36; x39; not x45).
+
+query(f).

@@ -1,0 +1,97 @@
+w(x0, 1, x0=0.0:1.0)::i1_0.
+w(2-x0, 1, x0=1.0:2.0)::i2_0.
+w(0, 1, x0=2.0:3.0)::i3_0.
+w(0, 1, x0=3.0:4.0)::i4_0.
+w(1, 1, y0=0.0:1.0)::e1_1.
+w(1, 1, y0=1.0:2.0)::e2_1.
+w(1, 1, boolean)::e3_1.
+w(1.5*y0, 1, boolean)::e1_1_1.
+w(1-0.5*y0, 1, boolean)::e2_1_1.
+w(0, 1, boolean)::e3_1_1.
+w(y0, 1, boolean)::e1_1_4.
+w(2-y0, 1, boolean)::e2_1_4.
+w(0, 1, boolean)::e3_1_4.
+w(1, 1, x1=0.0:1.0)::i1_1.
+w(1, 1, x1=1.0:2.0)::i2_1.
+w(1, 1, x1=2.0:3.0)::i3_1.
+w(1, 1, x1=3.0:4.0)::i4_1.
+w(a1, 1, boolean)::i1_1_2.
+w(a1, 1, boolean)::i2_1_2.
+w(a1, 1, boolean)::i3_1_2.
+w(a1, 1, boolean)::i4_1_2.
+w(a1, 1, boolean)::i1_1_4.
+w(a1, 1, boolean)::i2_1_4.
+w(a1, 1, boolean)::i3_1_4.
+w(a1, 1, boolean)::i4_1_4.
+w(a2, 1, boolean)::i1_1_5.
+w(a2, 1, boolean)::i2_1_5.
+w(a2, 1, boolean)::i3_1_5.
+w(a2, 1, boolean)::i4_1_5.
+w(a2, 1, boolean)::i1_1_6.
+w(a2, 1, boolean)::i2_1_6.
+w(a2, 1, boolean)::i3_1_6.
+w(a2, 1, boolean)::i4_1_6.
+
+f:-
+(i1_0 ; i2_0 ; i3_0 ; i4_0),
+(not i1_0 ; not i2_0),
+(not i1_0 ; not i3_0),
+(not i1_0 ; not i4_0),
+(not i2_0 ; not i3_0),
+(not i2_0 ; not i4_0),
+(not i3_0 ; not i4_0),
+
+(e1_1 ; e2_1 ; e3_1),
+(not e1_1 ; not e2_1),
+(not e1_1 ; not e3_1),
+(not e2_1 ; not e3_1),
+
+(not i1_0 ; not e1_1_4 ; e1_1),
+(not i1_0 ; not e2_1_4 ; e2_1),
+(not i1_0 ; not e3_1_4 ; e3_1),
+(not i1_0 ; e1_1_4 ; e2_1_4 ; e3_1_4),
+
+(not i2_0 ; not e1_1_1 ; e1_1),
+(not i2_0 ; not e2_1_1 ; e2_1),
+(not i2_0 ; not e3_1_1 ; e3_1),
+(not i2_0 ; e1_1_1 ; e2_1_1 ; e3_1_1),
+
+(not i3_0 ; e3_1),
+(not i4_0 ; e3_1),
+
+(i1_1 ; i2_1 ; i3_1 ; i4_1),
+(not i1_1 ; not i2_1),
+(not i1_1 ; not i3_1),
+(not i1_1 ; not i4_1),
+(not i2_1 ; not i3_1),
+(not i2_1 ; not i4_1),
+(not i3_1 ; not i4_1),
+
+(not i1_0 ; not e1_1 ; not i1_1_6 ; i1_1),
+(not i1_0 ; not e1_1 ; not i2_1_6 ; i2_1),
+(not i1_0 ; not e1_1 ; not i3_1_6 ; i3_1),
+(not i1_0 ; not e1_1 ; not i4_1_6 ; i4_1),
+(not i1_0 ; not e1_1 ; i1_1_6 ; i2_1_6 ; i3_1_6 ; i4_1_6),
+(not i1_0 ; not e2_1 ; not i1_1_5 ; i1_1),
+(not i1_0 ; not e2_1 ; not i2_1_5 ; i2_1),
+(not i1_0 ; not e2_1 ; not i3_1_5 ; i3_1),
+(not i1_0 ; not e2_1 ; not i4_1_5 ; i4_1),
+(not i1_0 ; not e2_1 ; i1_1_5 ; i2_1_5 ; i3_1_5 ; i4_1_5),
+
+(not i2_0 ; not e1_1 ; not i1_1_2 ; i1_1),
+(not i2_0 ; not e1_1 ; not i2_1_2 ; i2_1),
+(not i2_0 ; not e1_1 ; not i3_1_2 ; i3_1),
+(not i2_0 ; not e1_1 ; not i4_1_2 ; i4_1),
+(not i2_0 ; not e1_1 ; i1_1_2 ; i2_1_2 ; i3_1_2 ; i4_1_2),
+(not i2_0 ; not e2_1 ; not i1_1_4 ; i1_1),
+(not i2_0 ; not e2_1 ; not i2_1_4 ; i2_1),
+(not i2_0 ; not e2_1 ; not i3_1_4 ; i3_1),
+(not i2_0 ; not e2_1 ; not i4_1_4 ; i4_1),
+(not i2_0 ; not e2_1 ; i1_1_4 ; i2_1_4 ; i3_1_4 ; i4_1_4),
+
+(not i3_0 ; not e3_1 ; i3_1),
+(not i4_0 ; not e3_1 ; i4_1)
+
+.
+
+query(f).

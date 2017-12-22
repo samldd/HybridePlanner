@@ -1,0 +1,98 @@
+w(1,1,boolean)::x1.              % effects: eps1(1), eps2(1), eps3(1)
+w(1,1,boolean)::x2.
+w(1,1,boolean)::x3.
+
+w(x, 1, x=0.0:2.0)::x4.          % state transition weights
+w(x, 1, x=2.0:4.0)::x5.
+w(x, 1, x=4.0:6.0)::x6.
+
+w(1,1,boolean)::x7.              % state variables t1
+w(1,1,boolean)::x8.
+w(1,1,boolean)::x9.
+
+w(1,1,boolean)::x10.             % effects: eps1(2), eps2(2), eps3(2)
+w(1,1,boolean)::x11.
+w(1,1,boolean)::x12.
+
+w(x_2, 1, x_2=0.0:2.0)::x13.     % state transition weights
+w(x_2, 1, x_2=2.0:4.0)::x14.
+w(x_2, 1, x_2=4.0:6.0)::x15.
+
+w(1,1,boolean)::x16.             % state variables t2
+w(1,1,boolean)::x17.
+w(1,1,boolean)::x18.
+
+w(1,1,boolean)::x19.             % effects: eps1(2), eps2(2), eps3(2)
+w(1,1,boolean)::x20.
+w(1,1,boolean)::x21.
+
+w(x_3, 1, x_3=0.0:2.0)::x22.     % state transition weights
+w(x_3, 1, x_3=2.0:4.0)::x23.
+w(x_3, 1, x_3=4.0:6.0)::x24.
+
+w(1,1,boolean)::x25.             % state variables t2
+w(1,1,boolean)::x26.
+w(1,1,boolean)::x27.
+
+f :-
+( x26),                          % The goal
+
+( x1; x2; x3),                   % One of the effects
+( not x1; not x2),               % Exactly one effect
+( not x1; not x3),
+( not x2; not x3),
+
+( not x4; x1),                   %  ⟨eps1(1)⟩                          => eps1(1)
+( x4; not x5; x2),               % -⟨eps1(1)⟩ ^  ⟨eps2(1)⟩             => eps2(1)
+( x4; x5; not x6; x3),           % -⟨eps1(1)⟩ ^ -⟨eps2(1)⟩ ^ ⟨eps3(1)⟩ => eps3(1)
+( x4; x5; x6),
+
+( not x1; x7), ( x1; not x7),    % eps1(1) <=> interval1(1)
+( not x2; x8), ( x2; not x8),    % eps2(1) <=> interval2(1)
+( not x3; x9), ( x3; not x9),    % eps3(1) <=> interval3(1)
+
+( x10; x11; x12),                % One of the effects
+( not x10; not x11),             % Exactly one effect
+( not x10; not x12),
+( not x11; not x12),
+
+( not x13; x10),                 %  ⟨eps1(2)⟩                           => eps1(1)
+( x13; not x14; x11),            % -⟨eps1(2)⟩ ^  ⟨eps2(2)⟩              => eps2(1)
+( x13; x14; not x15; x12),       % -⟨eps1(2)⟩ ^ -⟨eps2(2)⟩ ^  ⟨eps3(2)⟩ => eps3(1)
+( x13; x14; x15),                % -⟨eps1(2)⟩ ^ -⟨eps2(2)⟩ ^ -⟨eps3(2)⟩ => false
+
+( not x10; x16),                 % eps1(1) => interval1(1)
+( not x11; x17),                 % eps2(1) => interval2(1)
+( not x12; x18),                 % eps3(1) => interval3(1)
+
+( not x7; x16),                  % interval1(1) => interval1(2)
+( not x8; x17),                  % interval2(1) => interval2(2)
+( not x9; x18),                  % interval3(1) => interval3(2)
+( x10; x7; not x16),             % interval1(1) or eps1(2) <= interval1(2)
+( x11; x8; not x17),             % interval2(1) or eps2(2) <= interval2(2)
+( x12; x9; not x18),             % interval3(1) or eps3(2) <= interval3(2)
+
+( x19; x20; x21),                % One of the effects
+( not x19; not x20),             % Exactly one effect
+( not x19; not x21),
+( not x20; not x21),
+
+( not x22; x19),                 %  ⟨eps1(2)⟩                           => eps1(1)
+( x22; not x23; x20),            % -⟨eps1(2)⟩ ^  ⟨eps2(2)⟩              => eps2(1)
+( x22; x23; not x24; x21),       % -⟨eps1(2)⟩ ^ -⟨eps2(2)⟩ ^  ⟨eps3(2)⟩ => eps3(1)
+( x22; x23; x24),                % -⟨eps1(2)⟩ ^ -⟨eps2(2)⟩ ^ -⟨eps3(2)⟩ => false
+
+( not x19; x25),                 % eps1(1) => interval1(1)
+( not x20; x26),                 % eps2(1) => interval2(1)
+( not x21; x27),                 % eps3(1) => interval3(1)
+
+( not x16; x25),                  % interval1(2) => interval1(2)
+( not x17; x26),                  % interval2(2) => interval2(2)
+( not x18; x27),                  % interval3(2) => interval3(2)
+( x19; x16; not x25),             % interval1(2) or eps1(3) <= interval1(2)
+( x20; x17; not x26),             % interval2(2) or eps2(3) <= interval2(2)
+( x21; x18; not x27).             % interval3(2) or eps3(3) <= interval3(2)
+
+query(f).
+
+

@@ -1,0 +1,41 @@
+w(1,1,boolean)::eps1_1. w(0.70,0.30,boolean)::weps1_1.
+w(1,1,boolean)::eps2_1. w(0.66,0.34,boolean)::weps2_1.
+w(1,1,boolean)::eps3_1. w(1.00,0.00,boolean)::weps3_1.
+w(1,1,boolean)::eps4_1.
+
+w(0.9,0.1,boolean)::r1_0.
+w(1,1,boolean)::r2_0.
+
+w(1,1,boolean)::r1_1.
+w(1,1,boolean)::r2_1.
+
+f :-
+r2_1,
+
+(eps1_1 ; eps2_1 ; eps3_1 ; eps4_1),
+(not eps1_1 ; not eps2_1),
+(not eps1_1 ; not eps3_1),
+(not eps1_1 ; not eps4_1),
+(not eps2_1 ; not eps3_1),
+(not eps2_1 ; not eps4_1),
+(not eps3_1 ; not eps4_1),
+
+(r1_0 ; r2_0),(not r1_0 ; not r2_0),
+(r1_1 ; r2_1),(not r1_1 ; not r2_1),
+
+( not r1_0  ; not weps1_1 ; eps1_1),
+( not r1_0  ;     weps1_1 ; not weps2_1 ; eps2_1),
+( not r1_0  ;     weps1_1 ;     weps2_1 ; not weps3_1 ; eps3_1),
+( not r1_0  ;     weps1_1 ;     weps2_1 ;     weps3_1 ; eps4_1),
+
+(r1_0 ; eps4_1),
+
+(not eps1_1 ; r2_1) , (not eps2_1 ; r2_1),
+(not eps3_1 ; not r1_0 ; r1_1), (not eps4_1 ; not r1_0 ; r1_1),
+(not eps3_1 ; not r2_0 ; r2_1), (not eps4_1 ; not r2_0 ; r2_1).
+
+
+query(f).
+
+
+

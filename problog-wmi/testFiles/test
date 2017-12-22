@@ -1,0 +1,27 @@
+
+w(x, 1, x=0.0:1.0)::small_1.
+w(x, 1, x=1.0:2.0)::medium_1.
+
+w(x, 1, x=0.0:1.0)::small_2.
+w(x, 1, x=1.0:2.0)::medium_2.
+
+w(x, 1, x=0.0:1.0)::small_3.
+w(x, 1, x=1.0:2.0)::medium_3.
+
+w(1, 1, boolean)::goal.
+
+f :-
+
++(1,2) < 4,
+
+(small_1 ; medium_1),
+(not small_1 ; not medium_1),
+
+(not small_1 ; goal),
+(small_1 ; not goal).
+
+
+
+
+query(f).
+

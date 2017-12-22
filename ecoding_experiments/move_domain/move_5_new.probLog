@@ -1,0 +1,283 @@
+w(1,1,boolean)::x1.
+w(1,1,boolean)::x2.
+w(1,1,boolean)::x3.
+w(1,1,boolean)::x4.
+w(1,1,boolean)::x5.
+w(1,1,boolean)::x6.
+w(1,1,boolean)::x7.
+w(1,1,boolean)::x8.
+w(0.10,1,boolean)::x9.
+w(0.60,1,boolean)::x10.
+w(0.25,1,boolean)::x11.
+w(0.05,1,boolean)::x12.
+w(0.05,1,boolean)::x14.
+w(0.10,1,boolean)::x13.
+w(0.60,1,boolean)::x15.
+w(0.25,1,boolean)::x16.
+w(0,1,boolean)::x17.
+w(0.05,1,boolean)::x18.
+w(0.25,1,boolean)::x19.
+w(0.70,1,boolean)::x20.
+w(1,1,boolean)::x21.
+w(1,1,boolean)::x22.
+w(1,1,boolean)::x23.
+w(1,1,boolean)::x24.
+w(1,1,boolean)::x25.
+w(1,1,boolean)::x26.
+w(1,1,boolean)::x27.
+w(1,1,boolean)::x28.
+w(0.10,1,boolean)::x29.
+w(0.60,1,boolean)::x30.
+w(0.25,1,boolean)::x31.
+w(0.05,1,boolean)::x32.
+w(0.05,1,boolean)::x34.
+w(0.10,1,boolean)::x33.
+w(0.60,1,boolean)::x35.
+w(0.25,1,boolean)::x36.
+w(0,1,boolean)::x37.
+w(0.05,1,boolean)::x38.
+w(0.25,1,boolean)::x39.
+w(0.70,1,boolean)::x40.
+w(1,1,boolean)::x41.
+w(1,1,boolean)::x42.
+w(1,1,boolean)::x43.
+w(1,1,boolean)::x44.
+w(1,1,boolean)::x45.
+w(1,1,boolean)::x46.
+w(1,1,boolean)::x47.
+w(1,1,boolean)::x48.
+w(0.10,1,boolean)::x49.
+w(0.60,1,boolean)::x50.
+w(0.25,1,boolean)::x51.
+w(0.05,1,boolean)::x52.
+w(0.05,1,boolean)::x54.
+w(0.10,1,boolean)::x53.
+w(0.60,1,boolean)::x55.
+w(0.25,1,boolean)::x56.
+w(0,1,boolean)::x57.
+w(0.05,1,boolean)::x58.
+w(0.25,1,boolean)::x59.
+w(0.70,1,boolean)::x60.
+w(1,1,boolean)::x61.
+w(1,1,boolean)::x62.
+w(1,1,boolean)::x63.
+w(1,1,boolean)::x64.
+w(1,1,boolean)::x65.
+w(1,1,boolean)::x66.
+w(1,1,boolean)::x67.
+w(1,1,boolean)::x68.
+w(0.10,1,boolean)::x69.
+w(0.60,1,boolean)::x70.
+w(0.25,1,boolean)::x71.
+w(0.05,1,boolean)::x72.
+w(0.05,1,boolean)::x74.
+w(0.10,1,boolean)::x73.
+w(0.60,1,boolean)::x75.
+w(0.25,1,boolean)::x76.
+w(0,1,boolean)::x77.
+w(0.05,1,boolean)::x78.
+w(0.25,1,boolean)::x79.
+w(0.70,1,boolean)::x80.
+w(1,1,boolean)::x81.
+w(1,1,boolean)::x82.
+w(1,1,boolean)::x83.
+w(1,1,boolean)::x84.
+w(1,1,boolean)::x85.
+w(1,1,boolean)::x86.
+w(1,1,boolean)::x87.
+w(1,1,boolean)::x88.
+w(0.10,1,boolean)::x89.
+w(0.60,1,boolean)::x90.
+w(0.25,1,boolean)::x91.
+w(0.05,1,boolean)::x92.
+w(0.05,1,boolean)::x94.
+w(0.10,1,boolean)::x93.
+w(0.60,1,boolean)::x95.
+w(0.25,1,boolean)::x96.
+w(0,1,boolean)::x97.
+w(0.05,1,boolean)::x98.
+w(0.25,1,boolean)::x99.
+w(0.70,1,boolean)::x100.
+w(1,1,boolean)::x101.
+w(1,1,boolean)::x102.
+w(1,1,boolean)::x103.
+w(1,1,boolean)::x104.
+
+f :-
+ (x1 ; x2 ; x3 ; x4),
+ (not x1 ; not x2),
+ (not x1 ; not x3),
+ (not x1 ; not x4),
+ (not x2 ; not x3),
+ (not x2 ; not x4),
+ (not x3 ; not x4),
+ (x5 ; x6 ; x7 ; x8 ),
+ (not x5 ; not x6 ),
+ (not x5 ; not x7 ),
+ (not x5 ; not x8 ),
+ (not x6 ; not x7 ),
+ (not x6 ; not x8 ),
+ (not x7 ; not x8 ),
+ (not x1 ; not x9 ; x5 ),
+ (not x1 ; not x10 ; x6 ),
+ (not x1 ; not x11 ; x7 ),
+ (not x1 ; not x12 ; x8 ),
+ (not x1 ; x9 ; x10 ; x11 ; x12 ),
+ (not x2 ; not x13 ; x5 ),
+ (not x2 ; not x14 ; x6 ),
+ (not x2 ; not x15 ; x7 ),
+ (not x2 ; not x16 ; x8 ),
+ (not x2 ; x13 ; x14 ; x15 ; x16 ),
+ (not x2 ; not x17 ; x5 ),
+ (not x3 ; not x18 ; x6 ),
+ (not x3 ; not x19 ; x7 ),
+ (not x3 ; not x20 ; x8 ),
+ (not x3 ; x17 ; x18 ; x19 ; x20 ),
+ (not x4 ; x8 ),
+ (x21 ; x22 ; x23 ; x24 ),
+ (not x21 ; not x22 ),
+ (not x21 ; not x23 ),
+ (not x21 ; not x24 ),
+ (not x22 ; not x23 ),
+ (not x22 ; not x24 ),
+ (not x23 ; not x24 ),
+ (not x5 ; x21 ),
+ (not x6 ; x22 ),
+ (not x7 ; x23 ),
+ (not x8 ; x24 ),
+ (x25; x26; x27; x28),
+ (not x25; not x26),
+ (not x25; not x27),
+ (not x25; not x28),
+ (not x26; not x27),
+ (not x26; not x28),
+ (not x27; not x28),
+ (not x21; not x29; x25),
+ (not x21; not x30; x26),
+ (not x21; not x31; x27),
+ (not x21; not x32; x28),
+ (not x21; x29; x30; x31; x32),
+ (not x22; not x33; x25),
+ (not x22; not x34; x26),
+ (not x22; not x35; x27),
+ (not x22; not x36; x28),
+ (not x22; x33; x34; x35; x36),
+ (not x22; not x37; x25),
+ (not x23; not x38; x26),
+ (not x23; not x39; x27),
+ (not x23; not x40; x28),
+ (not x23; x37; x38; x39; x40),
+ (not x24; x28),
+ (x41; x42; x43; x44),
+ (not x41; not x42),
+ (not x41; not x43),
+ (not x41; not x44),
+ (not x42; not x43),
+ (not x42; not x44),
+ (not x43; not x44),
+ (not x25; x41),
+ (not x26; x42),
+ (not x27; x43),
+ (not x28; x44),
+ (x45; x46; x47; x48),
+ (not x45; not x46),
+ (not x45; not x47),
+ (not x45; not x48),
+ (not x46; not x47),
+ (not x46; not x48),
+ (not x47; not x48),
+ (not x41; not x49; x45),
+ (not x41; not x50; x46),
+ (not x41; not x51; x47),
+ (not x41; not x52; x48),
+ (not x41; x49; x50; x51; x52),
+ (not x42; not x53; x45),
+ (not x42; not x54; x46),
+ (not x42; not x55; x47),
+ (not x42; not x56; x48),
+ (not x42; x53; x54; x55; x56),
+ (not x42; not x57; x45),
+ (not x43; not x58; x46),
+ (not x43; not x59; x47),
+ (not x43; not x60; x48),
+ (not x43; x57; x58; x59; x60),
+ (not x44; x48),
+ (x61; x62; x63; x64),
+ (not x61; not x62),
+ (not x61; not x63),
+ (not x61; not x64),
+ (not x62; not x63),
+ (not x62; not x64),
+ (not x63; not x64),
+ (not x45; x61),
+ (not x46; x62),
+ (not x47; x63),
+ (not x48; x64),
+ (x65; x66; x67; x68),
+ (not x65; not x66),
+ (not x65; not x67),
+ (not x65; not x68),
+ (not x66; not x67),
+ (not x66; not x68),
+ (not x67; not x68),
+ (not x61; not x69; x65),
+ (not x61; not x70; x66),
+ (not x61; not x71; x67),
+ (not x61; not x72; x68),
+ (not x61; x69; x70; x71; x72),
+ (not x62; not x73; x65),
+ (not x62; not x74; x66),
+ (not x62; not x75; x67),
+ (not x62; not x76; x68),
+ (not x62; x73; x74; x75; x76),
+ (not x62; not x77; x65),
+ (not x63; not x78; x66),
+ (not x63; not x79; x67),
+ (not x63; not x80; x68),
+ (not x63; x77; x78; x79; x80),
+ (not x64; x68),
+ (x81; x82; x83; x84),
+ (not x81; not x82),
+ (not x81; not x83),
+ (not x81; not x84),
+ (not x82; not x83),
+ (not x82; not x84),
+ (not x83; not x84),
+ (not x65; x81),
+ (not x66; x82),
+ (not x67; x83),
+ (not x68; x84),
+ (x85; x86; x87; x88),
+ (not x85; not x86),
+ (not x85; not x87),
+ (not x85; not x88),
+ (not x86; not x87),
+ (not x86; not x88),
+ (not x87; not x88),
+ (not x81; not x89; x85),
+ (not x81; not x90; x86),
+ (not x81; not x91; x87),
+ (not x81; not x92; x88),
+ (not x81; x89; x90; x91; x92),
+ (not x82; not x93; x85),
+ (not x82; not x94; x86),
+ (not x82; not x95; x87),
+ (not x82; not x96; x88),
+ (not x82; x93; x94; x95; x96),
+ (not x82; not x97; x85),
+ (not x83; not x98; x86),
+ (not x83; not x99; x87),
+ (not x83; not x100; x88),
+ (not x83; x97; x98; x99; x100),
+ (not x84; x88),
+ (x101; x102; x103; x104),
+ (not x101; not x102),
+ (not x101; not x103),
+ (not x101; not x104),
+ (not x102; not x103),
+ (not x102; not x104),
+ (not x103; not x104),
+ (not x85; x101),
+ (not x86; x102),
+ (not x87; x103),
+ (not x88; x104).

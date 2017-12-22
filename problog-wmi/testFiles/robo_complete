@@ -1,0 +1,182 @@
+w(1,1,boolean)::x0.
+w(1,1,boolean)::x1.
+w(1,1,boolean)::x2.
+w(1,1,boolean)::x3.
+w(1,1,boolean)::x4.
+w(1,1,boolean)::x5.
+w(1,1,boolean)::x6.
+w(1,1,boolean)::x7.
+w(0.850000,1,boolean)::wx50.
+w(0.150000,1,boolean)::wx60.
+w(0.000000,1,boolean)::wx70.
+w(0.100000,1,boolean)::wx51.
+w(0.900000,1,boolean)::wx61.
+w(0.000000,1,boolean)::wx71.
+w(0.000000,1,boolean)::wx52.
+w(0.000000,1,boolean)::wx62.
+w(1.000000,1,boolean)::wx72.
+w(1,1,boolean)::x8.
+w(1,1,boolean)::x9.
+w(1,1,boolean)::x10.
+w(1,1,boolean)::x11.
+w(1,1,boolean)::x12.
+w(1,1,boolean)::x13.
+w(1,1,boolean)::x14.
+w(1,1,boolean)::x15.
+w(0.850000,1,boolean)::wx130.
+w(0.150000,1,boolean)::wx140.
+w(0.000000,1,boolean)::wx150.
+w(0.100000,1,boolean)::wx131.
+w(0.900000,1,boolean)::wx141.
+w(0.000000,1,boolean)::wx151.
+w(0.000000,1,boolean)::wx132.
+w(0.000000,1,boolean)::wx142.
+w(1.000000,1,boolean)::wx152.
+w(1,1,boolean)::x16.
+w(1,1,boolean)::x17.
+w(1,1,boolean)::x18.
+w(1,1,boolean)::x19.
+w(1,1,boolean)::x20.
+w(1,1,boolean)::x21.
+w(1,1,boolean)::x22.
+w(1,1,boolean)::x23.
+w(0.380000,1,boolean)::wx210.
+w(0.600000,1,boolean)::wx220.
+w(0.020000,1,boolean)::wx230.
+w(0.200000,1,boolean)::wx211.
+w(0.600000,1,boolean)::wx221.
+w(0.200000,1,boolean)::wx231.
+w(0.000000,1,boolean)::wx212.
+w(0.000000,1,boolean)::wx222.
+w(1.000000,1,boolean)::wx232.
+w(1,1,boolean)::x24.
+w(1,1,boolean)::x25.
+w(1,1,boolean)::x26.
+w(1,1,boolean)::x27.
+w(1,1,boolean)::x28.
+w(1,1,boolean)::x29.
+w(1,1,boolean)::x30.
+w(1,1,boolean)::x31.
+w(1,1,boolean)::x32.
+w(1,1,boolean)::x33.
+
+f:-
+(x0 ; x1 ; x2 ; x3),
+(not x0 ; not x1),
+(not x0 ; not x2),
+(not x0 ; not x3),
+(not x1 ; not x2),
+(not x1 ; not x3),
+(not x2 ; not x3),
+(x0),
+(not x4),
+(x5 ; x6 ; x7),
+(not x5 ; not x6),
+(not x5 ; not x7),
+(not x6 ; not x7),
+(not x0 ; not wx50 ; x5),
+(not x0 ; wx50 ; not wx60 ; x6),
+(not x0 ; wx50 ; wx60 ; not wx70 ; x7),
+(not x0 ; wx50 ; wx60 ; wx70),
+(not x1 ; not wx51 ; x5),
+(not x1 ; wx51 ; not wx61 ; x6),
+(not x1 ; wx51 ; wx61 ; not wx71 ; x7),
+(not x1 ; wx51 ; wx61 ; wx71),
+(x0 ; x1 ; not wx52 ; x5),
+(x0 ; x1 ; wx52 ; not wx62 ; x6),
+(x0 ; x1 ; wx52 ; wx62 ; not wx72 ; x7),
+(x0 ; x1 ; wx52 ; wx62 ; wx72),
+(x8 ; x9 ; x10 ; x11),
+(not x8 ; not x9),
+(not x8 ; not x10),
+(not x8 ; not x11),
+(not x9 ; not x10),
+(not x9 ; not x11),
+(not x10 ; not x11),
+(not x5 ; x9),
+(not x6 ; x10),
+(not x7 ;not x0 ; x8),
+(not x7 ;not x1 ; x9),
+(not x7 ;not x2 ; x10),
+(not x7 ;not x3 ; x11),
+(not x4 ; x12),
+(x4 ; not x12),
+(x13 ; x14 ; x15),
+(not x13 ; not x14),
+(not x13 ; not x15),
+(not x14 ; not x15),
+(not x8 ; not wx130 ; x13),
+(not x8 ; wx130 ; not wx140 ; x14),
+(not x8 ; wx130 ; wx140 ; not wx150 ; x15),
+(not x8 ; wx130 ; wx140 ; wx150),
+(not x9 ; not wx131 ; x13),
+(not x9 ; wx131 ; not wx141 ; x14),
+(not x9 ; wx131 ; wx141 ; not wx151 ; x15),
+(not x9 ; wx131 ; wx141 ; wx151),
+(x8 ; x9 ; not wx132 ; x13),
+(x8 ; x9 ; wx132 ; not wx142 ; x14),
+(x8 ; x9 ; wx132 ; wx142 ; not wx152 ; x15),
+(x8 ; x9 ; wx132 ; wx142 ; wx152),
+(x16 ; x17 ; x18 ; x19),
+(not x16 ; not x17),
+(not x16 ; not x18),
+(not x16 ; not x19),
+(not x17 ; not x18),
+(not x17 ; not x19),
+(not x18 ; not x19),
+(not x13 ; x17),
+(not x14 ; x18),
+(not x15 ;not x8 ; x16),
+(not x15 ;not x9 ; x17),
+(not x15 ;not x10 ; x18),
+(not x15 ;not x11 ; x19),
+(not x12 ; x20),
+(x12 ; not x20),
+(x21 ; x22 ; x23),
+(not x21 ; not x22),
+(not x21 ; not x23),
+(not x22 ; not x23),
+(not x16 ; not wx210 ; x21),
+(not x16 ; wx210 ; not wx220 ; x22),
+(not x16 ; wx210 ; wx220 ; not wx230 ; x23),
+(not x16 ; wx210 ; wx220 ; wx230),
+(not x17 ; not wx211 ; x21),
+(not x17 ; wx211 ; not wx221 ; x22),
+(not x17 ; wx211 ; wx221 ; not wx231 ; x23),
+(not x17 ; wx211 ; wx221 ; wx231),
+(x16 ; x17 ; not wx212 ; x21),
+(x16 ; x17 ; wx212 ; not wx222 ; x22),
+(x16 ; x17 ; wx212 ; wx222 ; not wx232 ; x23),
+(x16 ; x17 ; wx212 ; wx222 ; wx232),
+(x24 ; x25 ; x26 ; x27),
+(not x24 ; not x25),
+(not x24 ; not x26),
+(not x24 ; not x27),
+(not x25 ; not x26),
+(not x25 ; not x27),
+(not x26 ; not x27),
+(not x21 ; x25),
+(not x22 ; x26),
+(not x23 ; x27),
+(x21 ;x22 ;x23 ;not x16 ; x24),
+(x21 ;x22 ;x23 ;not x17 ; x25),
+(x21 ;x22 ;x23 ;not x18 ; x26),
+(x21 ;x22 ;x23 ;not x19 ; x27),
+(not x20 ; x28),
+(x20 ; not x28),
+(not x27 ;not x28 ; x29),
+(not x27 ;x28 ; x29),
+(x27 ; not x28 ; not x29),
+(x30 ; x31 ; x32 ; x33),
+(not x30 ; not x31),
+(not x30 ; not x32),
+(not x30 ; not x33),
+(not x31 ; not x32),
+(not x31 ; not x33),
+(not x32 ; not x33),
+(not x24 ; x30),
+(not x25 ; x31),
+(not x26 ; x32),
+(not x27 ; x33), x27.
+
+query(f).

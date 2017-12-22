@@ -1,0 +1,33 @@
+w(1,1,boolean)::x1.     % effects: eps1(1), eps2(1), eps3(1)
+w(1,1,boolean)::x2.
+w(1,1,boolean)::x3.
+
+w(0.11,1,boolean)::x4.   % state transition weights
+w(0.33,1,boolean)::x5.
+w(0.55,1,boolean)::x6.
+
+w(1,1,boolean)::x7.     % state variables t1
+w(1,1,boolean)::x8.
+w(1,1,boolean)::x9.
+
+f :- (x9),                     % The goal
+
+( x1; x2; x3),                  % One of the effects
+( not x1; not x2),              % Exactly one effect
+( not x1; not x3),
+( not x2; not x3),
+
+( x4; x5; x6),                  % One of the effects
+( not x4; not x5),              % Exactly one effect
+( not x4; not x6),
+( not x5; not x6),
+
+( not x4; x1),              %  ⟨eps1(1)⟩                          => eps1(1)
+( not x5; x2),              % -⟨eps1(1)⟩ ^  ⟨eps2(1)⟩             => eps2(1)
+( not x6; x3),              % -⟨eps1(1)⟩ ^ -⟨eps2(1)⟩ ^ ⟨eps3(1)⟩ => eps3(1)
+
+( not x1; x7), ( x1; not x7),   % eps1(1) <=> interval1(1)
+( not x2; x8), ( x2; not x8),   % eps2(1) <=> interval2(1)
+( not x3; x9), ( x3; not x9).   % eps3(1) <=> interval3(1)
+
+query(f).

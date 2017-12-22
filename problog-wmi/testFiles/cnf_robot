@@ -1,0 +1,97 @@
+w(1,1,boolean)::x1.
+w(1,1,boolean)::x2.
+w(1,1,boolean)::x3.
+w(1,1,boolean)::x4.
+
+w(1,1,boolean)::x5.
+w(1,1,boolean)::x6.
+w(0.850000,1,boolean)::wx50.
+w(0.150000,1,boolean)::wx60.
+w(0.100000,1,boolean)::wx51.
+w(0.900000,1,boolean)::wx61.
+w(1,1,boolean)::x8.
+w(1,1,boolean)::x9.
+w(1,1,boolean)::x10.
+w(1,1,boolean)::x11.
+
+w(1,1,boolean)::x12.
+w(1,1,boolean)::x13.
+w(0.850000,1,boolean)::wx120.
+w(0.150000,1,boolean)::wx130.
+w(0.100000,1,boolean)::wx121.
+w(0.900000,1,boolean)::wx131.
+w(1,1,boolean)::x15.
+w(1,1,boolean)::x16.
+w(1,1,boolean)::x17.
+w(1,1,boolean)::x18.
+
+
+f :-
+%(x16),                  % Goal button pushed
+
+(x1 ; x2 ; x3 ; x4),
+(not x1 ; not x2),
+(not x1 ; not x3),
+(not x1 ; not x4),
+(not x2 ; not x3),
+(not x2 ; not x4),
+(not x3 ; not x4),
+(x1),
+
+(x8 ; x9 ; x10 ; x11),
+(not x8 ; not x9),
+(not x8 ; not x10),
+(not x8 ; not x11),
+(not x9 ; not x10),
+(not x9 ; not x11),
+(not x10 ; not x11),
+
+(x15 ; x16 ; x17 ; x18),
+(not x15 ; not x16),
+(not x15 ; not x17),
+(not x15 ; not x18),
+(not x16 ; not x17),
+(not x16 ; not x18),
+(not x17 ; not x18),
+
+
+% MOVE 1
+(x5 ; x6),
+(not x5 ; not x6),
+
+(not x1 ; not wx50 ; x5),
+(not x1 ; wx50 ; not wx60 ; x6),
+(not x1 ; wx50 ; wx60),
+
+(not x2 ; not wx51 ; x5),
+(not x2 ; wx51 ; not wx61 ; x6),
+(not x2 ; wx51 ; wx61),
+
+(not x5 ; x9),
+(not x6 ; x10),
+(x5 ; x6 ;not x1 ; x8),
+(x5 ; x6 ;not x2 ; x9),
+(x5 ; x6 ;not x3 ; x10),
+(x5 ; x6 ;not x4 ; x11),
+
+%% MOVE 2
+(x12 ; x13),
+(not x12 ; not x13),
+
+(not x8 ; not wx120 ; x12),
+(not x8 ; wx120 ; not wx130 ; x13),
+(not x8 ; wx120 ; wx130),
+
+(not x9 ; not wx121 ; x12),
+(not x9 ; wx121 ; not wx131 ; x13),
+(not x9 ; wx121 ; wx131),
+
+(not x12 ; x16),
+(not x13 ; x17),
+(x12 ; x13 ;not x8 ; x15),
+(x12 ; x13 ;not x9 ; x16),
+(x12 ; x13 ;not x10 ; x17),
+(x12 ; x13 ;not x11 ; x18).
+
+
+query(f).
