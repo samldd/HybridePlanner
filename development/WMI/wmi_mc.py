@@ -5,7 +5,7 @@ import time
 from operators import SumOperator
 from problog.evaluator import FormulaEvaluatorNSP, FormulaEvaluator
 from problog.formula import LogicDAG
-from problog.program import PrologString, PrologFile
+from problog.program import PrologString
 from problog.sdd_formula import SDD
 
 from wmi_semiring import WmiSemiring
@@ -35,51 +35,36 @@ def solve(model, semiring, operator):
     return result
 
 
-def main(file):
-    pl = PrologString(file)
-    # pl = PrologFile(file)
+def transform(s):
+    from element import Element
+    import re
+    sub = "(?:\(.+\))+"
+    pattern = u"(Piecewise\({}\))".format(sub)
+    i = 0
+    dict = {}
+    for p in set(re.findall(pattern, s)):
+        new = "z{}".format(i)
+        dict[new] = p
+        s = s.replace(p, new)
+        i += 1
+    Element.dict = dict
+    return s
+
+
+def main(fileName):
+    string = open(fileName).read()
+    string = transform(string)
+    pl = PrologString(string)
     operator = SumOperator()
     result = solve(pl, WmiSemiring(operator.neutral_element), operator)
     for k, v in result.items():
         (formula, integral) = v
-        # print('%s(%s): %s\n%s' % (operator, k, integral, formula))
-        # print(formula.key)
+        print('%s(%s): %s\n%s' % (operator, k, integral, formula))
+        print(formula.key)
     return integral
 
 
-def argparser():
-    import argparse
-    parser = argparse.ArgumentParser()
-    parser.add_argument('file')
-    return parser
-
-
 if __name__ == '__main__':
-    a = []
-    pl = PrologFile("test_node")
-    operator = SumOperator()
     t = time.time()
-    # for _ in range(0,10):
-    result = solve(pl, WmiSemiring(operator.neutral_element), operator)
+    print("result={}".format(main("../CNF_move")))
     print("time: {}s".format(time.time()-t))
-    for k, v in result.items():
-        (formula, integral) = v
-        print(formula)
-        print(integral)
-    #     a += [integral]
-    # a = map(lambda x: float(x), a)
-    # print(np.mean(a))
-    # print(np.std(a))
-
-
-"""def main():
-   intervals1 = Intervals({"x": Interval((0, 10), (True, False)), "a": Interval((-5, 5), (True, True))})
-   intervals2 = Intervals({"x": Interval((5, 10), (True, True)), "b": Interval((-5, 5), (True, True))})
-   intervals = intervals1.times(intervals2)
-   print(intervals)
-   f = Formula(4, {"x": 5})
-   print(f)
-
-if __name__ == '__main__':act
-   main()
-"""

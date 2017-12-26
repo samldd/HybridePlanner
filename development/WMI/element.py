@@ -5,10 +5,14 @@ import sympy
 
 from formula import Formula
 from intervals import Intervals
+from skmonaco import mcquad
 
 integralTime = 0
 
 class Element(object):
+
+    dict = {}
+
     def __init__(self, list_of_tuples, key):
         # self.list = filter(lambda (i, e): not e.is_null(), list_of_tuples)
         self.list = list_of_tuples
@@ -50,29 +54,18 @@ class Element(object):
             else:
                 t = time.time()
                 keys = i.keys()
-                if "a01" in map(lambda x: str(x), f.formula.free_symbols):
-                    f.formula = f.formula.subs(sympy.Symbol("a01"), sympy.sympify("Piecewise((x, (0<x) & (x<1)), ( 0, True ))"))
-                if "a02" in map(lambda x: str(x), f.formula.free_symbols):
-                    f.formula = f.formula.subs(sympy.Symbol("a02"), sympy.sympify("Piecewise((2-x,(1<x) & (x<2)), ( 0, True ))"))
-
-                if "a1" in map(lambda x: str(x), f.formula.free_symbols):
-                    f.formula = f.formula.subs(sympy.Symbol("a1"), sympy.sympify("2*Piecewise((x1-y0, (0<x1-y0) & (x1-y0<1)), ( 0, True ))"))
-                if "a2" in map(lambda x: str(x), f.formula.free_symbols):
-                    f.formula = f.formula.subs(sympy.Symbol("a2"), sympy.sympify("2*Piecewise((2-(x1-y0),(1<x1-y0) & (x1-y0<2)), ( 0, True ))"))
-
-                if "a3" in map(lambda x: str(x), f.formula.free_symbols):
-                    f.formula = f.formula.subs(sympy.Symbol("a3"), sympy.sympify("2*Piecewise((x2-y1-y2, (0<x2-y1-y2) & (x2-y1-y2<1)), ( 0, True ))"))
-                if "a4" in map(lambda x: str(x), f.formula.free_symbols):
-                    f.formula = f.formula.subs(sympy.Symbol("a4"), sympy.sympify("2*Piecewise((2-(x2-y1-y2),(1<x2-y1-y2) & (x2-y1-y2<2)), ( 0, True ))"))
-                print(f.formula)
-                print(keys)
-                print(bounds)
+                for symb in set(map(lambda x: str(x), f.formula.free_symbols)) & set(Element.dict.keys()):
+                    f.formula = f.formula.subs(sympy.Symbol(symb),
+                                               sympy.sympify(Element.dict[symb]))
+                # print(f.formula)
+                # print(keys)
+                # print(bounds)
                 f = sympy.lambdify(keys, f.formula)
                 xl = map(lambda x: x[0],bounds)
                 xu = map(lambda x: x[1], bounds)
-                (integral, err) = mcquad(lambda x: apply(f,x), 1000, xl, xu)
+                (integral, err) = mcquad(lambda x: apply(f,x), 100, xl, xu)
                 integral = sympy.S(integral)
-                print(integral)
+                # print(integral)
                 # print("integration time: {}".format(time.time()-t))
             result = operator.perform(result, integral)
         return result

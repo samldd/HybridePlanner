@@ -7,6 +7,7 @@ from problog.evaluator import Semiring
 
 from intervals import Intervals
 
+debug = False
 
 class WmiSemiring(Semiring):
     def __init__(self, neutral):
@@ -20,11 +21,13 @@ class WmiSemiring(Semiring):
         return Element([(Intervals({}), Formula(sympy.S(1.0)))], "t")
 
     def plus(self, a, b):
-        #print("\t{} plus {}".format(a, b))
+        if debug:
+            print("\t{} plus {}".format(a, b))
         return a.plus(b)
 
     def times(self, a, b):
-        #print("\t\t{} times {} = {}".format(a, b, a.times(b)))
+        if debug:
+            print("\t\t{} times {} = {}".format(a, b, a.times(b)))
         return a.times(b)
 
     def pos_value(self, a, key=None):

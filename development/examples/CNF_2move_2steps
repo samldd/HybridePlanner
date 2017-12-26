@@ -1,5 +1,5 @@
-w(a01,1,x=0.0:1.0)::i1_1.
-w(a02,1,x=1.0:2.0)::i2_1.
+w(Piecewise((x, (0<x) & (x<1)), ( 0, True )),1,x=0.0:1.0)::i1_1.
+w(Piecewise((2-x,(1<x) & (x<2)), ( 0, True )),1,x=1.0:2.0)::i2_1.
 w(0,1,x=2.0:3.0)::i3_1.
 w(0,1,x=3.0:4.0)::i4_1.
 
@@ -13,22 +13,22 @@ w(1.5*y1,1,y1=0.0:1.0)::weps1_2.
 w(1-0.5*y1,1,y1=1.0:2.0)::weps2_2.
 w(0,1,boolean)::weps3_2.
 
-w(a1,1,boolean)::wi1_2_1_1.
-w(a1,1,boolean)::wi1_2_1_2.
-w(a1,1,boolean)::wi1_2_1_3.
-w(a1,1,boolean)::wi1_2_1_4.
-w(a1,1,boolean)::wi1_2_2_1.
-w(a1,1,boolean)::wi1_2_2_2.
-w(a1,1,boolean)::wi1_2_2_3.
-w(a1,1,boolean)::wi1_2_2_4.
-w(a2,1,boolean)::wi2_2_1_1.
-w(a2,1,boolean)::wi2_2_1_2.
-w(a2,1,boolean)::wi2_2_1_3.
-w(a2,1,boolean)::wi2_2_1_4.
-w(a2,1,boolean)::wi2_2_2_1.
-w(a2,1,boolean)::wi2_2_2_2.
-w(a2,1,boolean)::wi2_2_2_3.
-w(a2,1,boolean)::wi2_2_2_4.
+w(2*Piecewise((x1-y1, (0<x1-y1) & (x1-y1<1)), ( 0, True )),1,boolean)::wi1_2_1_1.
+w(2*Piecewise((x1-y1, (0<x1-y1) & (x1-y1<1)), ( 0, True )),1,boolean)::wi1_2_1_2.
+w(2*Piecewise((x1-y1, (0<x1-y1) & (x1-y1<1)), ( 0, True )),1,boolean)::wi1_2_1_3.
+w(2*Piecewise((x1-y1, (0<x1-y1) & (x1-y1<1)), ( 0, True )),1,boolean)::wi1_2_1_4.
+w(2*Piecewise((x1-y1, (0<x1-y1) & (x1-y1<1)), ( 0, True )),1,boolean)::wi1_2_2_1.
+w(2*Piecewise((x1-y1, (0<x1-y1) & (x1-y1<1)), ( 0, True )),1,boolean)::wi1_2_2_2.
+w(2*Piecewise((x1-y1, (0<x1-y1) & (x1-y1<1)), ( 0, True )),1,boolean)::wi1_2_2_3.
+w(2*Piecewise((x1-y1, (0<x1-y1) & (x1-y1<1)), ( 0, True )),1,boolean)::wi1_2_2_4.
+w(2*Piecewise((2-(x1-y1),(1<x1-y1) & (x1-y1<2)), ( 0, True )),1,boolean)::wi2_2_1_1.
+w(2*Piecewise((2-(x1-y1),(1<x1-y1) & (x1-y1<2)), ( 0, True )),1,boolean)::wi2_2_1_2.
+w(2*Piecewise((2-(x1-y1),(1<x1-y1) & (x1-y1<2)), ( 0, True )),1,boolean)::wi2_2_1_3.
+w(2*Piecewise((2-(x1-y1),(1<x1-y1) & (x1-y1<2)), ( 0, True )),1,boolean)::wi2_2_1_4.
+w(2*Piecewise((2-(x1-y1),(1<x1-y1) & (x1-y1<2)), ( 0, True )),1,boolean)::wi2_2_2_1.
+w(2*Piecewise((2-(x1-y1),(1<x1-y1) & (x1-y1<2)), ( 0, True )),1,boolean)::wi2_2_2_2.
+w(2*Piecewise((2-(x1-y1),(1<x1-y1) & (x1-y1<2)), ( 0, True )),1,boolean)::wi2_2_2_3.
+w(2*Piecewise((2-(x1-y1),(1<x1-y1) & (x1-y1<2)), ( 0, True )),1,boolean)::wi2_2_2_4.
 w(1,1,x1=0.0:1.0)::i1_2.
 w(1,1,x1=1.0:2.0)::i2_2.
 w(1,1,x1=2.0:3.0)::i3_2.
@@ -44,22 +44,22 @@ w(1.5*y2,1,y2=0.0:1.0)::weps1_2_1.
 w(1-0.5*y2,1,y2=1.0:2.0)::weps2_2_1.
 w(0,1,boolean)::weps3_2_1.
 
-w(a3,1,boolean)::wi1_3_1_1.
-w(a3,1,boolean)::wi1_3_1_2.
-w(a3,1,boolean)::wi1_3_1_3.
-w(a3,1,boolean)::wi1_3_1_4.
-w(a3,1,boolean)::wi1_3_2_1.
-w(a3,1,boolean)::wi1_3_2_2.
-w(a3,1,boolean)::wi1_3_2_3.
-w(a3,1,boolean)::wi1_3_2_4.
-w(a4,1,boolean)::wi2_3_1_1.
-w(a4,1,boolean)::wi2_3_1_2.
-w(a4,1,boolean)::wi2_3_1_3.
-w(a4,1,boolean)::wi2_3_1_4.
-w(a4,1,boolean)::wi2_3_2_1.
-w(a4,1,boolean)::wi2_3_2_2.
-w(a4,1,boolean)::wi2_3_2_3.
-w(a4,1,boolean)::wi2_3_2_4.
+w(2*Piecewise((x2-y1-y2, (0<x2-y1-y2) & (x2-y1-y2<1)), ( 0, True )),1,boolean)::wi1_3_1_1.
+w(2*Piecewise((x2-y1-y2, (0<x2-y1-y2) & (x2-y1-y2<1)), ( 0, True )),1,boolean)::wi1_3_1_2.
+w(2*Piecewise((x2-y1-y2, (0<x2-y1-y2) & (x2-y1-y2<1)), ( 0, True )),1,boolean)::wi1_3_1_3.
+w(2*Piecewise((x2-y1-y2, (0<x2-y1-y2) & (x2-y1-y2<1)), ( 0, True )),1,boolean)::wi1_3_1_4.
+w(2*Piecewise((x2-y1-y2, (0<x2-y1-y2) & (x2-y1-y2<1)), ( 0, True )),1,boolean)::wi1_3_2_1.
+w(2*Piecewise((x2-y1-y2, (0<x2-y1-y2) & (x2-y1-y2<1)), ( 0, True )),1,boolean)::wi1_3_2_2.
+w(2*Piecewise((x2-y1-y2, (0<x2-y1-y2) & (x2-y1-y2<1)), ( 0, True )),1,boolean)::wi1_3_2_3.
+w(2*Piecewise((x2-y1-y2, (0<x2-y1-y2) & (x2-y1-y2<1)), ( 0, True )),1,boolean)::wi1_3_2_4.
+w(2*Piecewise((2-(x2-y1-y2),(1<x2-y1-y2) & (x2-y1-y2<2)), ( 0, True )),1,boolean)::wi2_3_1_1.
+w(2*Piecewise((2-(x2-y1-y2),(1<x2-y1-y2) & (x2-y1-y2<2)), ( 0, True )),1,boolean)::wi2_3_1_2.
+w(2*Piecewise((2-(x2-y1-y2),(1<x2-y1-y2) & (x2-y1-y2<2)), ( 0, True )),1,boolean)::wi2_3_1_3.
+w(2*Piecewise((2-(x2-y1-y2),(1<x2-y1-y2) & (x2-y1-y2<2)), ( 0, True )),1,boolean)::wi2_3_1_4.
+w(2*Piecewise((2-(x2-y1-y2),(1<x2-y1-y2) & (x2-y1-y2<2)), ( 0, True )),1,boolean)::wi2_3_2_1.
+w(2*Piecewise((2-(x2-y1-y2),(1<x2-y1-y2) & (x2-y1-y2<2)), ( 0, True )),1,boolean)::wi2_3_2_2.
+w(2*Piecewise((2-(x2-y1-y2),(1<x2-y1-y2) & (x2-y1-y2<2)), ( 0, True )),1,boolean)::wi2_3_2_3.
+w(2*Piecewise((2-(x2-y1-y2),(1<x2-y1-y2) & (x2-y1-y2<2)), ( 0, True )),1,boolean)::wi2_3_2_4.
 w(1,1,x2=0.0:1.0)::i1_3.
 w(1,1,x2=1.0:2.0)::i2_3.
 w(1,1,x2=2.0:3.0)::i3_3.
