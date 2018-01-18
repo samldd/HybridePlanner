@@ -6,6 +6,7 @@ import sympy
 from formula import Formula
 from intervals import Intervals
 from skmonaco import mcquad
+from itertools import compress
 
 integralTime = 0
 
@@ -57,16 +58,32 @@ class Element(object):
                 for symb in set(map(lambda x: str(x), f.formula.free_symbols)) & set(Element.dict.keys()):
                     f.formula = f.formula.subs(sympy.Symbol(symb),
                                                sympy.sympify(Element.dict[symb]))
-                # print(f.formula)
-                # print(keys)
-                # print(bounds)
-                f = sympy.lambdify(keys, f.formula)
+                # TODO: FILTER ongeldige berekeningen. Fout in encodering, of problog?
+                symbols = set(map(lambda x: str(x), f.formula.free_symbols))
+                if not symbols == set(keys):
+                    bounds = list(compress(bounds,[key in symbols for key in keys]))
+                    org_keys = keys
+                    keys = [key for key in keys if key in symbols]
+                    # print(f.formula)
+                    # print(symbols)
+                    # print(set(keys))
+                    # print(bounds)
+                func = sympy.lambdify(keys, f.formula)
                 xl = map(lambda x: x[0],bounds)
                 xu = map(lambda x: x[1], bounds)
-                (integral, err) = mcquad(lambda x: apply(f,x), 100, xl, xu)
+                try:
+                    (integral, err) = mcquad(lambda x: apply(func,x), 100, xl, xu)
+                except:
+                    print(f.formula)
+                    print(org_keys)
+                    print(set(keys))
+                    print(bounds)
+                    integral = 0
                 integral = sympy.S(integral)
                 # print(integral)
-                # print("integration time: {}".format(time.time()-t))
+                    # print("integration time: {}".format(time.time()-t))
+                # else:
+                #     integral = sympy.S(0)
             result = operator.perform(result, integral)
         return result
 
